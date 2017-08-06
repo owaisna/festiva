@@ -2004,27 +2004,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var LoginComponent = (function () {
-    // user;
     function LoginComponent(router, userService) {
         this.router = router;
         this.userService = userService;
         this.localUser = {};
+        this.msg = "";
     }
     LoginComponent.prototype.ngOnInit = function () {
         if (this.userService.getLoggedUser()) {
+            this.msg = "";
             this.router.navigate(['dashboard']);
+        }
+        else {
         }
     };
     LoginComponent.prototype.login = function (event) {
         var _this = this;
         event.preventDefault();
-        // console.log(this.localUser);
         this.userService.login(this.localUser)
             .subscribe(function (user) {
-            // console.log(user);
-            __WEBPACK_IMPORTED_MODULE_3_ng2_cookies_ng2_cookies__["Cookie"].set('currentUser', JSON.stringify(user));
-            // this.user = user;
-            _this.router.navigate(['dashboard']);
+            console.log(user);
+            if (user != null) {
+                _this.msg = "";
+                __WEBPACK_IMPORTED_MODULE_3_ng2_cookies_ng2_cookies__["Cookie"].set('currentUser', JSON.stringify(user));
+                _this.router.navigate(['dashboard']);
+            }
+            else {
+                _this.msg = "Invalid username or password";
+            }
         });
     };
     LoginComponent = __decorate([
@@ -2326,7 +2333,7 @@ module.exports = "<!-- Third (Works) section -->\n<section class=\"section\" id=
 /***/ 564:
 /***/ (function(module, exports) {
 
-module.exports = "    <link href=\"/assets/dist/css/sb-admin-2.css\" rel=\"stylesheet\">\r\n\r\n<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <div class=\"login-panel panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Please Sign In</h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form role=\"form\" (submit)=\"login($event)\">\r\n                        <fieldset>\r\n                            <div class=\"form-group\">\r\n                                <input class=\"form-control\" placeholder=\"Name / E-Mail\"\r\n                                    name=\"name\" type=\"text\" [(ngModel)]=\"localUser.name\"\r\n                                    autofocus required\r\n                                >\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <input class=\"form-control\" placeholder=\"Password\"\r\n                                    name=\"pass\" type=\"password\" [(ngModel)]=\"localUser.pass\"\r\n                                    required\r\n                                >\r\n                            </div>\r\n                            <div class=\"checkbox\">\r\n                                <label>\r\n                                    <!--<input name=\"remember\" type=\"checkbox\" value=\"Remember Me\">Remember Me-->\r\n                                </label>\r\n                            </div>\r\n                            <!-- Change this to a button or input when using this as a form -->\r\n                            <!--<a class=\"btn btn-lg btn-success btn-block\">Login</a>-->\r\n                          <button class=\"btn btn-lg btn-success btn-block\" type=\"submit\">login</button>\r\n                          <a class=\"btn btn-lg btn-default btn-block\" routerLink=\"/signup\" routerLinkActive=\"\" >Signup</a>\r\n                          <a class=\"btn btn-lg btn-default btn-block\" routerLink=\"/\" routerLinkActive=\"\" >Back to Site</a>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "    <link href=\"/assets/dist/css/sb-admin-2.css\" rel=\"stylesheet\">\r\n\r\n<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <div class=\"login-panel panel panel-default\">\r\n                <div class=\"panel-heading\">\r\n                    <h3 class=\"panel-title\">Please Sign In</h3>\r\n                </div>\r\n                <div class=\"panel-body\">\r\n                    <form role=\"form\" (submit)=\"login($event)\">\r\n                        <fieldset>\r\n                            <div class=\"form-group\">\r\n                                <input class=\"form-control\" placeholder=\"Name / E-Mail\"\r\n                                    name=\"name\" type=\"text\" [(ngModel)]=\"localUser.name\"\r\n                                    autofocus required\r\n                                >\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <input class=\"form-control\" placeholder=\"Password\"\r\n                                    name=\"pass\" type=\"password\" [(ngModel)]=\"localUser.pass\"\r\n                                    required\r\n                                >\r\n                            </div>\r\n                            <!-- <div style=\"color:black\">..fdgsfdgsdf</div> -->\r\n                             <div class=\"checkbox\">\r\n                                <label style=\"color:black\"> {{ msg }}\r\n                                    <!-- <input name=\"remember\" type=\"checkbox\" value=\"Remember Me\">Remember Me -->\r\n                                </label>\r\n                            </div> \r\n                            <!-- Change this to a button or input when using this as a form -->\r\n                            <!--<a class=\"btn btn-lg btn-success btn-block\">Login</a>-->\r\n                          <button class=\"btn btn-lg btn-success btn-block\" type=\"submit\">login</button>\r\n                          <a class=\"btn btn-lg btn-default btn-block\" routerLink=\"/signup\" routerLinkActive=\"\" >Signup</a>\r\n                          <a class=\"btn btn-lg btn-default btn-block\" routerLink=\"/\" routerLinkActive=\"\" >Back to Site</a>\r\n                        </fieldset>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 

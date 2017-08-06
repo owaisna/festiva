@@ -39,7 +39,8 @@ var feedback = require("./routes/feedback");
 
 // connect to monoose
 // mongoose.connect('mongodb://localhost:27017/festiv');
-mongoose.connect('mongodb://127.0.0.1:27017/festiv');
+// mongoose.connect('mongodb://127.0.0.1:27017/festiv');
+mongoose.connect('mongodb://mongoadmin:mongopass@ds029665.mlab.com:29665/festiva');
 var db = mongoose.connection;
 
 app.use(function(req, res, next) {
