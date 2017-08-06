@@ -1,0 +1,54 @@
+<!-- Third (Works) section -->
+<section class="section" id="head">
+	<div class="container">
+	
+		<h2 class="text-center title">Organized Events</h2>
+		<p class="lead text-center">
+			These are some events organized by <a>FESTIVA</a><br>
+		</p>
+		<div class="row col-sm-8 col-sm-offset-2">
+			<div class="col-sm-6" *ngFor="let event of events; let i = index" >
+				<div class="thumbnail">
+					<img src="/assets/site/images/body{{ i+1 }}.jpg" alt="">
+					<div class="caption">
+						<h3>{{ event.event_type }}</h3>
+						<p>This event is organized on behalf of Mr. {{ event.fkey[0].name }} on {{ event.event_date }}.</p>
+						<p><a href="/dashboard/photos/" class="btn btn-primary" role="button">View</a> <a href="/dashboard/feedback/" class="btn btn-default" role="button">Feedback</a></p>
+					</div>
+				</div>
+			</div>
+			<!--<div class="col-sm-4">
+				<div class="thumbnail">
+					<img src="/assets/site/images/body2.jpg" alt="">
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="thumbnail">
+					<img src="/assets/site/images/body3.jpg" alt="">
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="thumbnail">
+					<img src="/assets/site/images/body4.jpg" alt="">
+					<div class="caption">
+						<h3>Thumbnail label</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+						<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+					</div>
+				</div>
+			</div>-->
+
+		</div>
+
+	</div>
+</section>

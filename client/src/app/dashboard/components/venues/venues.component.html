@@ -1,0 +1,65 @@
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Venues</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<div class="row">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover table-striped">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Location</th>
+									<th>Event Type</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td></td>
+									<td><input type="text" name="name" [(ngModel)]="formItem.name" required /></td>
+									<td><input type="text" name="description" [(ngModel)]="formItem.description" required /></td>
+									<td><input type="text" name="location" [(ngModel)]="formItem.location" required /></td>
+									<!--<td><input type="text" name="event_type" [(ngModel)]="formItem.event_type" required /></td>-->
+									<td>
+										<select class="form-control" name="event_type" [(ngModel)]="formItem.event_type">
+											<option *ngFor="let et of EventTypes" value="{{et.type}}">{{ et.type }}</option>
+										</select>
+									</td>
+									<td><button class="btn btn-success" type="submit" (click)="addThis()">Save</button></td>
+									<td><button class="btn btn-danger" type='reset' (click)="clearThis()">Reset</button></td>
+								</tr>
+								<tr *ngFor="let venue of dataList; let i = index">
+									<td>{{ i+1 }}</td>
+									<td>{{venue.name}}</td>
+									<td>{{venue.description}}</td>
+									<td>{{venue.location}}</td>
+									<td>{{venue.event_type}}</td>
+									<td><button class="btn btn-primary active" ng-hide="true" ng-disabled="isEditingMode" (click)="updateThis(venue)">Edit</button></td>
+									<td><button class="btn btn-danger active" ng-disabled="isEditingMode" (click)="deleteThis(venue._id)">Delete</button></td>
+								</tr>
+								<tr></tr>
+								<tr></tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.table-responsive -->
+				</div>
+				<!-- /.col-lg-4 (nested) -->
+				<div class="col-lg-8">
+					<div id="morris-bar-chart"></div>
+				</div>
+				<!-- /.col-lg-8 (nested) -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.panel-body -->
+	</div>
+</div>
+<!-- /#page-wrapper -->

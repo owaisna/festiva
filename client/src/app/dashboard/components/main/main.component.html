@@ -1,0 +1,82 @@
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Hello, {{ currentUser.name }}</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+        <div class="row">
+            <div class="col-lg-12">
+				<!--content here-->
+            </div>
+        </div>
+		<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Upcoming Booked Events
+                            <!--<div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu">
+                                        <li><a href="#">Action</a>
+                                        </li>
+                                        <li><a href="#">Another action</a>
+                                        </li>
+                                        <li><a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>-->
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Date</th>
+                                                    <th>Client</th>
+                                                    <th>Venue</th>
+                                                    <th>Catering</th>
+                                                    <th>Service</th>
+                                                    <th>Ocasion Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let order of orders; let i = index">
+                                                    <td>{{ i+1 }}</td>
+                                                    <td>{{order.event_date}}</td>
+                                                    <td>{{order.fkey[0].name}}</td>
+                                                    <td>{{order.venue}}</td>
+                                                    <td>{{order.catering}}</td>
+                                                    <td>{{order.service}}</td>
+                                                    <td>{{order.event_type}}</td>
+                                                    <td><button class="btn btn-primary active" ng-hide="true" ng-disabled="isEditingMode" (click)="updateThis(order._id)">Edit</button></td>
+                                                    <td><button class="btn btn-danger active" ng-disabled="isEditingMode" (click)="deleteThis(order._id)">Delete</button></td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.col-lg-4 (nested) -->
+                                <div class="col-lg-8">
+                                    <div id="morris-bar-chart"></div>
+                                </div>
+                                <!-- /.col-lg-8 (nested) -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+	</div>
+</div>
